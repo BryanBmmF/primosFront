@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Numeros Primos</title>
+</head>
+<body>
+
+<h1>Numeros primos</h1>
+<p>AL presionar el siguiente boton se mostraran los numero primos del 1 - 10</p>
+<input type="button" value="Generar los numero primos del 1 - 10" onclick="primos();">
+<br>
+<hr>
+<label id="primos"></label>
+
+</body>
+
+<script>
+    function primos() {
+        var palabra = "";
+        for (let step = 1; step <= 10; step++) {
+            
+            if(esPrimo(step)) {
+                 palabra= palabra+step+"   ";
+            }
+        }
+
+        document.getElementById("primos").innerHTML = palabra;
+    }
+
+    function esPrimo(numero) {
+        var esPrimoActual = true;
+        if(numero<2) {
+            esPrimoActual = false;
+        }
+        else {
+            for (let step = 2; step*step <= numero; step++) {
+                if(numero%step == 0) {
+                    esPrimoActual = false;
+                    break;
+                }
+            }
+        }
+            
+        return esPrimoActual;
+    }
+
+    </script>
+</html> 
